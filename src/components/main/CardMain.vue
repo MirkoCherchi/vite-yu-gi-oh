@@ -3,9 +3,11 @@
 export default {
     props: {
         img: String,
-        name: String,
-        type: String
-    }
+        archetype: {
+            type: String,
+            default: "Unknown"
+        }, cardName: String
+    },
 
 };
 
@@ -14,7 +16,7 @@ export default {
 <template>
     <div class="card"><img :src="img" :alt="name">
         <h5>{{ name }}</h5>
-        <div>{{ type }}</div>
+        <div>{{ archetype }}</div>
     </div>
 </template>
 

@@ -1,7 +1,6 @@
 <script>
-import { store } from "../../store";
-import axios from "axios";
 import CardMain from "./CardMain.vue";
+import { store } from "../../store";
 
 export default {
     components: {
@@ -10,15 +9,8 @@ export default {
 
     data() {
         return {
-            cards: [],
+            store,
         };
-    },
-    created() {
-        axios
-            .get("https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0")
-            .then((response) => {
-                this.cards = response.data.data;
-            });
     },
 };
 </script>
@@ -26,10 +18,11 @@ export default {
 <template>
     <div class="container-cards">
         <div class="cards-count">
-            <h4>Found {{ cards.length }} cards</h4>
+            <h4>Found {{ store.cards.length }} cards</h4>
         </div>
         <div class="list">
-            <CardMain v-for="card in cards" :img="card.card_images[0].image_url" :name="card.name" :type="card.type" />
+            <CardMain v-for="card in store.cards" :img="card.card_images[0].image_url_small" :name="card.name"
+                :type="card.archetype" />
         </div>
     </div>
 </template>

@@ -1,9 +1,10 @@
 <script>
 import MainSelectVue from './MainSelect.vue';
 import MainCards from './MainCards.vue';
-import { store } from '../../store';
 
 export default {
+
+    props: [],
     components: {
         MainSelectVue,
         MainCards
@@ -11,7 +12,7 @@ export default {
     },
     data() {
         return {
-            store
+
         }
     },
 };
@@ -21,7 +22,7 @@ export default {
 
 <template>
     <main>
-        <MainSelectVue />
+        <MainSelectVue @searchArch="$emit('searchArchetype')" />
         <MainCards />
     </main>
 </template>
