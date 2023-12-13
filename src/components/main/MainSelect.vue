@@ -1,10 +1,13 @@
 <script>
 import axios from "axios";
 import { store } from "../../store";
+import MainCards from "./MainCards.vue";
 
 export default {
     props: [],
-    components: {},
+    components: {
+        MainCards,
+    },
     data() {
         return {
             store,
@@ -12,19 +15,16 @@ export default {
     },
 
     created() {
-        axios.get(store.searchArchetypeURL).then(response => {
-            console.log('Select Archetype:', this.store.selectArchetype);
+        axios.get(store.searchArchetypeURL).then((response) => {
+            console.log("Select Archetype:", this.store.selectArchetype);
             store.archetypesList = response.data;
         });
     },
-
-    mounted() { },
 };
 </script>
 
 <template>
     <select name="Selector" id="main-selector" v-model="store.selectArchetype" @change="$emit('searchArch')">
-        <option value="">Select Archetype</option>
         <option value="">All</option>
         <option v-for="archetype in store.archetypesList" :value="archetype.archetype_name">
             {{ archetype.archetype_name }}

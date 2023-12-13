@@ -1,7 +1,6 @@
 <script>
 import CardMain from "./CardMain.vue";
 import { store } from "../../store";
-import axios from "axios";
 
 export default {
     props: [],
@@ -13,12 +12,6 @@ export default {
         return {
             store,
         };
-    },
-
-    created() {
-        axios.get(store.apiURL).then((response) => {
-            store.cards = response.data.data;
-        });
     },
 };
 </script>
