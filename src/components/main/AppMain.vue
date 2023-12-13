@@ -1,28 +1,22 @@
 <script>
-import MainSelectVue from './MainSelect.vue';
-import MainCards from './MainCards.vue';
+import MainSelectVue from "./MainSelect.vue";
+import MainCards from "./MainCards.vue";
 
 export default {
-
     props: [],
     components: {
         MainSelectVue,
-        MainCards
-
+        MainCards,
     },
     data() {
-        return {
-
-        }
+        return {};
     },
 };
-
-
 </script>
 
 <template>
     <main>
-        <MainSelectVue @searchArch="$emit('searchArchetype')" />
+        <MainSelectVue @searchArch="$emit('search')" />
         <MainCards />
     </main>
 </template>

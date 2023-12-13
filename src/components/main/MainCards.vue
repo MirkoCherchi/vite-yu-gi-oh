@@ -1,7 +1,7 @@
 <script>
 import CardMain from "./CardMain.vue";
 import { store } from "../../store";
-import axios from 'axios';
+import axios from "axios";
 
 export default {
     props: [],
@@ -16,12 +16,9 @@ export default {
     },
 
     created() {
-        axios.get(store.apiURL)
-            .then(response => {
-                store.cards = response.data.data;
-            })
-
-
+        axios.get(store.apiURL).then((response) => {
+            store.cards = response.data.data;
+        });
     },
 };
 </script>
@@ -59,7 +56,6 @@ export default {
         flex-wrap: wrap;
         justify-content: space-between;
         gap: 20px;
-
     }
 }
 </style>

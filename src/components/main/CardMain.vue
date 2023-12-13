@@ -1,27 +1,26 @@
 <script>
-
 export default {
     props: {
         img: String,
         archetype: {
             type: String,
-            default: "Unknown"
-        }, name: String
+            default: "Unknown",
+        },
+        name: String,
     },
-
 };
-
 </script>
 
 <template>
-    <div class="card"><img :src="img" :alt="name">
+    <div class="card">
+        <img :src="img" :alt="name" />
         <h5>{{ name }}</h5>
         <div>{{ archetype }}</div>
     </div>
 </template>
 
 <style lang="scss">
-@use '../../assets/styles/variables' as *;
+@use "../../assets/styles/variables" as *;
 
 .card {
     display: flex;
@@ -39,12 +38,9 @@ export default {
         padding: 5px;
     }
 
-
-
     img {
         width: 100%;
         display: block;
     }
-
 }
 </style>
