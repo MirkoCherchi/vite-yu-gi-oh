@@ -6,7 +6,7 @@ export default {
         archetype: {
             type: String,
             default: "Unknown"
-        }, cardName: String
+        }, name: String
     },
 
 };

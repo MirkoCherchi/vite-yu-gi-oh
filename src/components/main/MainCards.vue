@@ -1,8 +1,10 @@
 <script>
 import CardMain from "./CardMain.vue";
 import { store } from "../../store";
+import axios from 'axios';
 
 export default {
+    props: [],
     components: {
         CardMain,
     },
@@ -11,6 +13,15 @@ export default {
         return {
             store,
         };
+    },
+
+    created() {
+        axios.get(store.apiURL)
+            .then(response => {
+                store.cards = response.data.data;
+            })
+
+
     },
 };
 </script>
@@ -22,7 +33,7 @@ export default {
         </div>
         <div class="list">
             <CardMain v-for="card in store.cards" :img="card.card_images[0].image_url_small" :name="card.name"
-                :type="card.archetype" />
+                :archetype="card.archetype" />
         </div>
     </div>
 </template>
